@@ -23,34 +23,6 @@ El Valle de Aburrá está compuesto por 10 municipios (de norte a sur):
 
 ---
 
-## Representación de polígonos de cobertura
-
-Un polígono de cobertura se define mediante un conjunto de coordenadas `[longitud, latitud]` en formato **GeoJSON**. Cada polígono puede representar:
-
-- **Cobertura total** (zona urbana o rural con servicio)
-- **Capacidad tecnológica** (fibra, 4G, 5G, HFC)
-- **Velocidades ofrecidas** (ej. > 300 Mbps)
-
-## Mapa de calor de cobertura por tecnología en el Valle de Aburrá
-[Barbosa]        ░░░░░░ (solo cobertura inalámbrica)
-[Girardota]      ▓▓▓▓░░ (fibra parcial)
-[Copacabana]     ▓▓▓▓░░ (fibra parcial)
-[Bello]          ▓▓▓▓▓▓ (fibra masiva + HFC)
-[Medellín]       ██████ (fibra + 5G + HFC)
-[Envigado]       ██████ (fibra + 5G)
-[Itagüí]         █████▓ (fibra industrial)
-[Sabaneta]       ▓▓▓▓▓▓ (FTTH total)
-[La Estrella]    ▓▓▓▓░░ (FTTH parcial)
-[Caldas]         ░░░░░░ (proyecto futuro)
-Leyenda:
-
-█ = cobertura total (más del 90% del área urbana)
-
-▓ = cobertura parcial (50% - 90%)
-
-░ = cobertura baja o nula (< 50%)
-
-
 ### Polígono de **Medellín centro** (alta densidad + 5G)
 
 ```json
