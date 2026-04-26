@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mapa de cobertura - Medellín Centro (5G + FTTH)</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+
+        .info {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>📡 Polígono de cobertura - Medellín Centro</h2>
+    <div class="info">
+        <strong>Municipio:</strong> Medellín<br>
+        <strong>Operador:</strong> MetaRed<br>
+        <strong>Tecnología:</strong> 5G + FTTH<br>
+        <strong>Velocidad máxima:</strong> 2000 Mbps<br>
+        <strong>Cobertura:</strong> Centro expandido
+    </div>
+    <div id="map"></div>
+
+    <script>
+        // Inicializar mapa centrado en Medellín
+        var map = L.map('map').setView([6.2475, -75.5675], 15);
+
+        // Agregar capa base (OpenStreetMap)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> & CartoDB',
+            subdomains: 'abcd',
+            maxZoom: 19,
+            minZoom: 12
+        }).addTo(map);
+
+        // Definir el polígono de cobertura (Ejemplo 3)
+        var coberturaPolygon = {
+            "type": "Feature",
+            "properties": {
+                "municipio": "Medellín",
+                "operador": "MetaRed",
+                "tecnologia": "5G + FTTH",
+                "velocidad_max_mbps": 2000,
+                "cobertura": "Centro expandido",
+                "color": "#FF6600"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [[
+                    [-75.575, 6.240],
+                    [-75.560, 6.240],
+                    [-75.560, 6.255],
+                    [-75.575, 6.255],
+                    [-75.575, 6.240]
+                ]]
+            }
+        };
+
+        // Definir estilo del polígono
+        var estilo = {
+            color: "#FF6600",
+            weight: 3,
+            fillColor: "#FF9900",
+            fillOpacity: 0.4,
+            opacity: 0.8
+        };
+
+        // Agregar el polígono al mapa
+        var polygon = L.geoJSON(coberturaPolygon, {
+            style: estilo,
+            onEachFeature: function (feature, layer) {
+                // Agregar tooltip con información
+                layer.bindTooltip(`
+                    <strong>${feature.properties.municipio}</strong><br>
+                    ${feature.properties.tecnologia}<br>
+                    ${feature.properties.velocidad_max_mbps} Mbps
+                `);
+
+                // Agregar popup con más detalles
+                layer.bindPopup(`
+                    <b>Municipio:</b> ${feature.properties.municipio}<br>
+                    <b>Operador:</b> ${feature.properties.operador}<br>
+                    <b>Tecnología:</b> ${feature.properties.tecnologia}<br>
+                    <b>Velocidad máxima:</b> ${feature.properties.velocidad_max_mbps} Mbps<br>
+                    <b>Cobertura:</b> ${feature.properties.cobertura}
+                `);
+            }
+        }).addTo(map);
+
+        // Ajustar el zoom para que el polígono sea visible
+        map.fitBounds(polygon.getBounds());
+
+        // Agregar control de escala
+        L.control.scale().addTo(map);
+
+        console.log("¡Mapa cargado correctamente!");
+    </script>
+</body>
+
+</html>
