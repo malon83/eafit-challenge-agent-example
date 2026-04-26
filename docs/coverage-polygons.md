@@ -59,7 +59,8 @@ Un polígono de cobertura se define mediante un conjunto de coordenadas `[longit
     }
   ]
 }
- 
+
+```json 
 {
   "type": "Feature",
   "properties": {
@@ -81,6 +82,7 @@ Un polígono de cobertura se define mediante un conjunto de coordenadas `[longit
   }
 }
 
+```json
 {
   "type": "Feature",
   "properties": {
@@ -101,25 +103,3 @@ Un polígono de cobertura se define mediante un conjunto de coordenadas `[longit
     ]]
   }
 }
-
-### Mapa de calor de cobertura por tecnología en el Valle de Aburrá 
-
-[Barbosa]        ░░░░░░ (solo cobertura inalámbrica)
-[Girardota]      ▓▓▓▓░░ (fibra parcial)
-[Copacabana]     ▓▓▓▓░░ (fibra parcial)
-[Bello]          ▓▓▓▓▓▓ (fibra masiva + HFC)
-[Medellín]       ██████ (fibra + 5G + HFC)
-[Envigado]       ██████ (fibra + 5G)
-[Itagüí]         █████▓ (fibra industrial)
-[Sabaneta]       ▓▓▓▓▓▓ (FTTH total)
-[La Estrella]    ▓▓▓▓░░ (FTTH parcial)
-[Caldas]         ░░░░░░ (proyecto futuro)
-
-
-Leyenda:
-
-█ = cobertura total (más del 90% del área urbana)
-
-▓ = cobertura parcial (50% - 90%)
-
-░ = cobertura baja o nula (< 50%)
