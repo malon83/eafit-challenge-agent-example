@@ -60,8 +60,6 @@ Un polígono de cobertura se define mediante un conjunto de coordenadas `[longit
   ]
 }
  
-### Polígono para zona industrial de **Itagüí** (cable coaxial + fibra)
-
 {
   "type": "Feature",
   "properties": {
@@ -82,8 +80,6 @@ Un polígono de cobertura se define mediante un conjunto de coordenadas `[longit
     ]]
   }
 }
-
-### Polígono de **Medellín centro** (alta densidad + 5G)
 
 {
   "type": "Feature",
